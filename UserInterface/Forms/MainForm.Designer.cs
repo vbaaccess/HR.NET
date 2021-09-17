@@ -48,9 +48,11 @@
             this.tsslDatabase = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.pMain = new System.Windows.Forms.Panel();
+            this.tcTabs = new System.Windows.Forms.TabControl();
             this.tcMaing.SuspendLayout();
             this.tpGeneral.SuspendLayout();
             this.ssMain.SuspendLayout();
+            this.pMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMaing
@@ -197,6 +199,7 @@
             this.btnContracts.Text = "Umowy";
             this.btnContracts.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnContracts.UseVisualStyleBackColor = false;
+            this.btnContracts.Click += new System.EventHandler(this.btnContracts_Click);
             // 
             // splitter1
             // 
@@ -221,6 +224,7 @@
             this.btnEmployees.Text = "Pracownicy";
             this.btnEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEmployees.UseVisualStyleBackColor = false;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // tpConfiguration
             // 
@@ -269,12 +273,26 @@
             // pMain
             // 
             this.pMain.BackColor = System.Drawing.Color.White;
+            this.pMain.Controls.Add(this.tcTabs);
             this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pMain.Location = new System.Drawing.Point(0, 70);
             this.pMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pMain.Name = "pMain";
             this.pMain.Size = new System.Drawing.Size(1020, 600);
             this.pMain.TabIndex = 2;
+            // 
+            // tcTabs
+            // 
+            this.tcTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcTabs.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tcTabs.Location = new System.Drawing.Point(0, 0);
+            this.tcTabs.Name = "tcTabs";
+            this.tcTabs.SelectedIndex = 0;
+            this.tcTabs.Size = new System.Drawing.Size(1020, 600);
+            this.tcTabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tcTabs.TabIndex = 0;
+            this.tcTabs.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tcTabs_DrawItem);
+            this.tcTabs.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tcTabs_MouseDown);
             // 
             // MainForm
             // 
@@ -294,6 +312,7 @@
             this.tpGeneral.ResumeLayout(false);
             this.ssMain.ResumeLayout(false);
             this.ssMain.PerformLayout();
+            this.pMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +339,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tsslVersion;
         private System.Windows.Forms.ToolStripStatusLabel tsslDatabase;
         private System.Windows.Forms.ToolStripStatusLabel tssUser;
+        private System.Windows.Forms.TabControl tcTabs;
     }
 }
