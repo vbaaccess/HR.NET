@@ -106,10 +106,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close_16.png" />
+    <None Include="Resources\close_wb.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close_wb.png" />
+    <None Include="Resources\add_wb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dismiss_wb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modyfi_wb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_wb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_wb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send_wb.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
