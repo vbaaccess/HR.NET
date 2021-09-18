@@ -15,7 +15,7 @@ namespace SystemHR.UserInterface.Forms
 {
     public partial class MainForm : Form
     {
-        private string _closeButtonFullPath = @"C:\Users\pawel\source\repos\vbaaccess\HR.NET\Resources\close_16.png";
+        //private string _closeButtonFullPath = @"C:\Users\pawel\source\repos\vbaaccess\HR.NET\Resources\close_16.png";
 
         private TabPage _tpEmployees;
         private TabPage _tpContracts;
@@ -47,6 +47,11 @@ namespace SystemHR.UserInterface.Forms
                 tcTabs.SelectedTab = _tpContracts;
         }
 
+        private string closeButtonFullPath()
+        {
+            return $@"{ResourcesHelper.ResourcesFilePath}\{ResourcesHelper.close_wb}";
+        }
+
         private void tcTabs_DrawItem(object sender, DrawItemEventArgs e)
         {
             /*
@@ -57,7 +62,7 @@ namespace SystemHR.UserInterface.Forms
                 var tabPage = this.tcTabs.TabPages[e.Index];
                 var tabRect = this.tcTabs.GetTabRect(e.Index);
 
-                    var closeImage = new Bitmap(_closeButtonFullPath);
+                    var closeImage = new Bitmap(closeButtonFullPath());
                     e.Graphics.DrawImage(closeImage,
                         (tabRect.Right - closeImage.Width),
                         tabRect.Top + (tabRect.Height - closeImage.Height) / 2);
@@ -74,7 +79,7 @@ namespace SystemHR.UserInterface.Forms
             {
                 var tabRect = this.tcTabs.GetTabRect(i);
                 tabRect.Inflate(-2, -2);
-                var closeImage = new Bitmap(_closeButtonFullPath);
+                var closeImage = new Bitmap(closeButtonFullPath());
                 var imageRect = new Rectangle(
                     (tabRect.Right - closeImage.Width),
                     tabRect.Top + (tabRect.Height - closeImage.Height) / 2,
