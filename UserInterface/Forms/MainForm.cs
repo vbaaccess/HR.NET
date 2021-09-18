@@ -15,16 +15,19 @@ namespace SystemHR.UserInterface.Forms
 {
     public partial class MainForm : Form
     {
-        //private string _closeButtonFullPath = @"C:\Users\pawel\source\repos\vbaaccess\HR.NET\Resources\close_16.png";
-
+        #region Fields
         private TabPage _tpEmployees;
         private TabPage _tpContracts;
+        #endregion
 
+        #region Constructior
         public MainForm()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void btnEmployees_Click(object sender, EventArgs e)
         {
             if (EmployeesForm.IsNull)
@@ -45,11 +48,6 @@ namespace SystemHR.UserInterface.Forms
             }
             else
                 tcTabs.SelectedTab = _tpContracts;
-        }
-
-        private string closeButtonFullPath()
-        {
-            return $@"{ResourcesHelper.ResourcesFilePath}\{ResourcesHelper.close_wb}";
         }
 
         private void tcTabs_DrawItem(object sender, DrawItemEventArgs e)
@@ -96,6 +94,13 @@ namespace SystemHR.UserInterface.Forms
                 }
             }
         }
+        #endregion
+
+        #region Private Methods
+        private string closeButtonFullPath()
+        {
+            return $@"{ResourcesHelper.ResourcesFilePath}\{ResourcesHelper.CloseButtonName}";
+        }
 
         private void ShowFormInTabpage(TabPage tpTab, Form frm)
         {
@@ -110,5 +115,9 @@ namespace SystemHR.UserInterface.Forms
             tcTabs.SelectedTab = tpTab;
         }
 
+        #endregion
+
+        #region Public Methods
+        #endregion
     }
 }
