@@ -10,15 +10,19 @@ using System.Windows.Forms;
 using SystemHR.DataAccessLayer.Models;
 using SystemHR.DataAccessLayer.Models.Dictionaries;
 using SystemHR.DataAccessLayer.ViewModel;
+using SystemHR.UserInterface.Helpers;
 
 namespace SystemHR.UserInterface.Forms.Employees
 {
     public partial class EmployeesForm : Form
     {
+
+        #region Fields
         private static EmployeesForm _instance = null;
-
         private static IList<EmployeeViewModel> testEmployees;
+        #endregion
 
+        #region Propertes
         public static EmployeesForm Instance
         {
             get
@@ -44,19 +48,29 @@ namespace SystemHR.UserInterface.Forms.Employees
 
         }
 
+        #endregion
+
+        #region Constructior
         public EmployeesForm()
         {
             InitializeComponent();
-            testEmployees = GetFakeEmployees();
+            testEmployees = GetTestEmployees();
             PrepareEmployessData();
         }
+        #endregion
+
+        #region Private Metods
 
         private void PrepareEmployessData()
         {
+            //sort data by column Code
+            //var testEmployeesSorted = testEmployees.OrderBy(x => x.Code).AsEnumerable();  //Linq
+            var testEmployeesSorted = testEmployees.OrderBy(x => x.Code).ToList();          //Linq
             BindingSourceEmployees.DataSource = new BindingList<EmployeeViewModel>(testEmployees);
+            dgvEmployees.DataSource = BindingSourceEmployees;
         }
 
-        private IList<EmployeeViewModel> GetFakeEmployees()
+        private IList<EmployeeViewModel> GetTestEmployees()
         {
             IList<EmployeeModel> testEmployeesModel = new List<EmployeeModel>()
             {
@@ -76,7 +90,7 @@ namespace SystemHR.UserInterface.Forms.Employees
                    ,PassportNumber = "PSNR1234"
                    ,IssueDatePassport = new DateTime(2014,1,11)
                    ,ExpirationDatePassport = new DateTime(2024,1,11)
-                   ,Status = new StatusModel("Wprowdzony")
+                   ,Status = new StatusModel("Wprowadzony")
                 },
                 new EmployeeModel()
                 {
@@ -94,34 +108,21 @@ namespace SystemHR.UserInterface.Forms.Employees
                    ,PassportNumber = "PSNR2345"
                    ,IssueDatePassport = new DateTime(2018,5,26)
                    ,ExpirationDatePassport = new DateTime(2028,5,26)
-                   ,Status = new StatusModel("Wprowdzony")
+                   ,Status = new StatusModel("Wprowadzony")
                 }
             };
 
-            IList<EmployeeViewModel> testEmployeesViewModel = new List<EmployeeViewModel>();
-            //EmployeeViewModel  fakeEmployeesViewModel = new EmployeeViewModel();
-
-            foreach (EmployeeModel fakeEmployeeModel in testEmployeesModel)
-            {
-                               // fakeEmployeesViewModel
-                EmployeeViewModel fEVM = new EmployeeViewModel();
-                fEVM.Id =  fakeEmployeeModel.Id;
-                fEVM.LastName = fakeEmployeeModel.LastName;
-                fEVM.Firstname = fakeEmployeeModel.Firstname;
-                fEVM.Code = fakeEmployeeModel.Code.ToString();
-                fEVM.Position = string.Empty;
-                fEVM.Status = fakeEmployeeModel.Status.ToString();
-
-                testEmployeesViewModel.Add(fEVM);
-
-            }
-
-            return testEmployeesViewModel;
+            return MappingHelper.MapEmpoyeeModellToEmployeeViewModel(testEmployeesModel);
         }
+        #endregion
+
+        #region Private Metods
 
         private void EmployeesForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _instance = null;
         }
+
+        #endregion
     }
 }
