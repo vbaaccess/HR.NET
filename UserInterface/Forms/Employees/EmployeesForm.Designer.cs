@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpEmployees = new System.Windows.Forms.TableLayoutPanel();
             this.pEmployees = new System.Windows.Forms.Panel();
             this.btnSendEmail = new System.Windows.Forms.Button();
@@ -37,9 +38,17 @@
             this.btnModify = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.BindingSourceEmployees = new System.Windows.Forms.BindingSource(this.components);
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpEmployees.SuspendLayout();
             this.pEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceEmployees)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpEmployees
@@ -159,14 +168,78 @@
             // 
             this.dgvEmployees.AllowUserToAddRows = false;
             this.dgvEmployees.AllowUserToDeleteRows = false;
+            this.dgvEmployees.AutoGenerateColumns = false;
             this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colLastName,
+            this.colFirstName,
+            this.colCode,
+            this.colPosition,
+            this.colStatus});
+            this.dgvEmployees.DataSource = this.BindingSourceEmployees;
             this.dgvEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmployees.Location = new System.Drawing.Point(3, 33);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.Size = new System.Drawing.Size(794, 414);
             this.dgvEmployees.TabIndex = 1;
+            // 
+            // BindingSourceEmployees
+            // 
+            this.BindingSourceEmployees.DataSource = typeof(SystemHR.DataAccessLayer.ViewModel.EmployeeViewModel);
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            // 
+            // colLastName
+            // 
+            this.colLastName.DataPropertyName = "LastName";
+            this.colLastName.HeaderText = "Nazwisko";
+            this.colLastName.Name = "colLastName";
+            this.colLastName.ReadOnly = true;
+            this.colLastName.ToolTipText = "Nazwisko pracownika";
+            // 
+            // colFirstName
+            // 
+            this.colFirstName.DataPropertyName = "Firstname";
+            this.colFirstName.HeaderText = "Imię";
+            this.colFirstName.Name = "colFirstName";
+            this.colFirstName.ReadOnly = true;
+            this.colFirstName.ToolTipText = "Imię pracownika";
+            // 
+            // colCode
+            // 
+            this.colCode.DataPropertyName = "Code";
+            this.colCode.HeaderText = "Kod";
+            this.colCode.Name = "colCode";
+            this.colCode.ReadOnly = true;
+            this.colCode.ToolTipText = "Kod pracownika";
+            // 
+            // colPosition
+            // 
+            this.colPosition.DataPropertyName = "Position";
+            this.colPosition.HeaderText = "Stanowisko";
+            this.colPosition.Name = "colPosition";
+            this.colPosition.ReadOnly = true;
+            this.colPosition.ToolTipText = "Aktualinie zajmowane stanowisko";
+            this.colPosition.Width = 150;
+            // 
+            // colStatus
+            // 
+            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colStatus.DataPropertyName = "Status";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            this.colStatus.ToolTipText = "Status pracownika";
             // 
             // EmployeesForm
             // 
@@ -180,6 +253,7 @@
             this.tlpEmployees.ResumeLayout(false);
             this.pEmployees.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceEmployees)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -195,5 +269,12 @@
         private System.Windows.Forms.Button btnDismiss;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.DataGridView dgvEmployees;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.BindingSource BindingSourceEmployees;
     }
 }
