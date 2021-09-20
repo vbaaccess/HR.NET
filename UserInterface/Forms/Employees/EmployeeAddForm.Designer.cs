@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeAddForm));
             this.label1 = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
@@ -36,6 +37,7 @@
             this.dtpDateBirth = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.cbGender = new System.Windows.Forms.ComboBox();
+            this.BindingSourceGender = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -63,11 +65,16 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pbEmployee = new System.Windows.Forms.PictureBox();
+            this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epFirstName = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceGender)).BeginInit();
             this.gbContact.SuspendLayout();
             this.bgIdentityCard.SuspendLayout();
             this.gbPassport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,6 +130,7 @@
             this.dtpDateBirth.Name = "dtpDateBirth";
             this.dtpDateBirth.Size = new System.Drawing.Size(165, 20);
             this.dtpDateBirth.TabIndex = 7;
+            this.dtpDateBirth.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label5
             // 
@@ -135,11 +143,18 @@
             // 
             // cbGender
             // 
+            this.cbGender.DataSource = this.BindingSourceGender;
+            this.cbGender.DisplayMember = "Value";
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Location = new System.Drawing.Point(115, 88);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(165, 21);
             this.cbGender.TabIndex = 5;
+            this.cbGender.ValueMember = "Id";
+            // 
+            // BindingSourceGender
+            // 
+            this.BindingSourceGender.DataSource = typeof(SystemHR.DataAccessLayer.Models.Dictionaries.GenderModel);
             // 
             // label4
             // 
@@ -156,6 +171,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(165, 20);
             this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtLastName
             // 
@@ -163,6 +179,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(165, 20);
             this.txtLastName.TabIndex = 2;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // label3
             // 
@@ -252,6 +269,7 @@
             this.dtpExpirationDateIdenitityCard.Name = "dtpExpirationDateIdenitityCard";
             this.dtpExpirationDateIdenitityCard.Size = new System.Drawing.Size(165, 20);
             this.dtpExpirationDateIdenitityCard.TabIndex = 5;
+            this.dtpExpirationDateIdenitityCard.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label11
             // 
@@ -270,6 +288,7 @@
             this.dtpIssueDateIdentityCard.Name = "dtpIssueDateIdentityCard";
             this.dtpIssueDateIdentityCard.Size = new System.Drawing.Size(165, 20);
             this.dtpIssueDateIdentityCard.TabIndex = 3;
+            this.dtpIssueDateIdentityCard.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label10
             // 
@@ -319,6 +338,7 @@
             this.dtpExpirationDatePassport.Name = "dtpExpirationDatePassport";
             this.dtpExpirationDatePassport.Size = new System.Drawing.Size(165, 20);
             this.dtpExpirationDatePassport.TabIndex = 11;
+            this.dtpExpirationDatePassport.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label12
             // 
@@ -337,6 +357,7 @@
             this.dtpIssueDatePassport.Name = "dtpIssueDatePassport";
             this.dtpIssueDatePassport.Size = new System.Drawing.Size(165, 20);
             this.dtpIssueDatePassport.TabIndex = 9;
+            this.dtpIssueDatePassport.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label13
             // 
@@ -403,6 +424,16 @@
             this.pbEmployee.TabIndex = 2;
             this.pbEmployee.TabStop = false;
             // 
+            // epLastName
+            // 
+            this.epLastName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epLastName.ContainerControl = this;
+            // 
+            // epFirstName
+            // 
+            this.epFirstName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epFirstName.ContainerControl = this;
+            // 
             // EmployeeAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +451,7 @@
             this.Text = "Dodaj pracownika";
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceGender)).EndInit();
             this.gbContact.ResumeLayout(false);
             this.gbContact.PerformLayout();
             this.bgIdentityCard.ResumeLayout(false);
@@ -427,6 +459,8 @@
             this.gbPassport.ResumeLayout(false);
             this.gbPassport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,5 +502,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource BindingSourceGender;
+        private System.Windows.Forms.ErrorProvider epLastName;
+        private System.Windows.Forms.ErrorProvider epFirstName;
     }
 }
