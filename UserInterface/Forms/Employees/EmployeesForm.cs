@@ -124,5 +124,11 @@ namespace SystemHR.UserInterface.Forms.Employees
         }
 
         #endregion
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            EmployeeAddForm frm = new EmployeeAddForm();
+            frm.ShowDialog();
+        }
     }
 }

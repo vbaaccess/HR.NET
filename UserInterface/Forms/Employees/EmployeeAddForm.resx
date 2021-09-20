@@ -117,32 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="add_wb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_wb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cancel_wb32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_wb32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close_wb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_wb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dismiss_wb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dismiss_wb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="modyfi_wb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\modyfi_wb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh_wb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh_wb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="remove_wb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\remove_wb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save_wb32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_wb32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="send_wb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\send_wb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pbEmployee.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAIAAABLixI0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr0AAA69AUf7kK0AAAGISURBVEhLrZQhloNAEEQ5ChKJjOQWSCwOGRxxwcEtkCsx
+        cRGRSCRH4AhsMV3MawYmyb63X8B0T3WlM9AEy//xzmsYhqqq4jgONpqmKYqC2we8XnChwRnTNFGnOPcK
+        w5BFQYC+7vc7rNEUU4aj3YmXNYqiaBxHZjd0v46d63W73UQHR6YOwEI0gCnDLsBhiwKOknk8HmVZyhog
+        5AqVBpwAY8cLZaJgbNChXrdta7Rql3eD/YNYd10nSR9aLOy8dF8/Bsk7PJ9PXD/0Zc9Lzqjv+zRNsyzD
+        FWvRiBEQpfe8wFEhWF8J53kWpX4yrpc9BS1ysEaAKYPrBS6XC0S4vl4vphR4e8UFfHhXIU2SRKR5njO7
+        AXc76uiO2Q3XS48IUwq4cy8IMKTMbuwK9EjDlFmF/qXjkNFLj9jpSFuwBQGl+yNbvXQ7b0Zac1qyejHn
+        +cL5OH4t1pvtWVLfI1UoZyg3O4lftmab8r73dV2LgrEH0UDMeMMtw3hfr1c8+zdAABkLFH8+Iy/L8gv/
+        dWufG3pbFwAAAABJRU5ErkJggg==
+</value>
   </data>
 </root>
