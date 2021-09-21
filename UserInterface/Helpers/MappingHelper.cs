@@ -10,30 +10,48 @@ namespace SystemHR.UserInterface.Helpers
 {
     public class MappingHelper
     {
-        public static IList<EmployeeViewModel> MapEmpoyeeModellToEmployeeViewModel
-            (IList<EmployeeModel> employeeModelToMap)
+        public static IList<EmployeeViewModel> MapEmpoyeeModelToEmployeeViewModel
+            (IList<EmployeeModel> employeesModelToMap)
         {
             // mozna uzyc biblioteki do mapowania obiektow 
 
-            IList<EmployeeViewModel> MappedEmployeesViewModel = new List<EmployeeViewModel>();
+            IList<EmployeeViewModel> employeesViewModelToReturn = new List<EmployeeViewModel>();
 
-            foreach (EmployeeModel pomEmployeeModel in employeeModelToMap)
+            foreach (EmployeeModel werEmployeeModel in employeesModelToMap)
             {
                 // mappedRecordEmployeesViewModel
-                EmployeeViewModel mrEmployee = new EmployeeViewModel();
-                mrEmployee.Id = pomEmployeeModel.Id;
-                mrEmployee.LastName = pomEmployeeModel.LastName;
-                mrEmployee.Firstname = pomEmployeeModel.Firstname;
-                mrEmployee.Code = pomEmployeeModel.Code.ToString();
-                mrEmployee.Position = string.Empty;
-                mrEmployee.Status = pomEmployeeModel.Status.ToString();
+                EmployeeViewModel employeeViewModelToBeAdded = new EmployeeViewModel();
+                employeeViewModelToBeAdded.Id = werEmployeeModel.Id;
+                employeeViewModelToBeAdded.LastName = werEmployeeModel.LastName;
+                employeeViewModelToBeAdded.Firstname = werEmployeeModel.Firstname;
+                employeeViewModelToBeAdded.Code = werEmployeeModel.Code.ToString();
+                employeeViewModelToBeAdded.Position = string.Empty;
+                employeeViewModelToBeAdded.Status = werEmployeeModel.Status.ToString();
 
-                MappedEmployeesViewModel.Add(mrEmployee);
+                employeesViewModelToReturn.Add(employeeViewModelToBeAdded);
 
             }
 
-            return MappedEmployeesViewModel;
+            return employeesViewModelToReturn;
 
         }
+        
+        // metoda przeciazeniowa 
+        public static EmployeeViewModel MapEmpoyeeModelToEmployeeViewModel (EmployeeModel employeeModelToMap)
+        {
+            // mozna uzyc biblioteki do mapowania obiektow 
+                // mappedRecordEmployeesViewModel
+                EmployeeViewModel employeeViewModelToReturn = new EmployeeViewModel();
+                employeeViewModelToReturn.Id = employeeModelToMap.Id;
+                employeeViewModelToReturn.LastName = employeeModelToMap.LastName;
+                employeeViewModelToReturn.Firstname = employeeModelToMap.Firstname;
+                employeeViewModelToReturn.Code = employeeModelToMap.Code.ToString();
+                employeeViewModelToReturn.Position = string.Empty;
+                employeeViewModelToReturn.Status = employeeModelToMap.Status.ToString();
+
+            return employeeViewModelToReturn;
+
+        }
+
     }
 }

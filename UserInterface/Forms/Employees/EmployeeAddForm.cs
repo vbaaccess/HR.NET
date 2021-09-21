@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemHR.DataAccessLayer.Models;
 using SystemHR.DataAccessLayer.Models.Dictionaries;
+using SystemHR.UserInterface.Classes;
 using SystemHR.UserInterface.Extensions;
 using SystemHR.UserInterface.Forms.Base;
 using SystemHR.UserInterface.Helpers;
@@ -17,13 +18,20 @@ namespace SystemHR.UserInterface.Forms.Employees
 {
     public partial class EmployeeAddForm : BaseAddEditForm
     {
+        #region Fields
+        public EventHandler ReloadEmployees;
+        #endregion
+
+        #region Constructor
         public EmployeeAddForm()
         {
             InitializeComponent();
             InitializeDate();
             ValidateControls();
         }
+        #endregion
 
+        #region Private Metods
         private void ValidateControls()
         {
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
@@ -48,61 +56,6 @@ namespace SystemHR.UserInterface.Forms.Employees
 
             BindingSourceGender.DataSource = genders;
             cbGender.Text = string.Empty;
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            Save();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Cancel();
-        }
-
-        protected override void Save()
-        {
-            base.Save(); // w klasie bazowej jest pusto, wiec mozna to usunac
-            
-            if (ValidateForm())
-            {
-                EmployeeModel employee = new EmployeeModel()
-                {
-                        LastName = txtLastName.Text
-                    ,   Firstname = txtFirstName.Text
-                    ,   Gender = new GenderModel(cbGender.Text)
-                    ,   DateBirth = dtpDateBirth.Value
-                    ,   PESEL = txtPesel.Text
-                    ,   PhoneNumber = txtPhoneNumber.Text
-                    ,   EmailAddress = txtEmailAddress.Text
-                    ,   IdentityCardNumber = txtIdentityCardNumber.Text
-                    ,   IssueDateIdentityCard = dtpIssueDateIdentityCard.Value
-                    ,   ExpirationDateIdentityCard = dtpExpirationDateIdenitityCard.Value
-                    ,   PassportNumber = txtPassportNumber.Text
-                    ,   IssueDatePassport = dtpIssueDatePassport.Value
-                    ,   ExpirationDatePassport = dtpExpirationDatePassport.Value
-                    ,   Status = new StatusModel("Wprowadzony")
-                };
-
-                employee = CreateEmployee(employee);
-
-                /* TO DO 
-                 * Niestandardowe zdarzenia i delegacje.
-                 * ReloadEmployees();
-                 */
-
-                Close();
-            }
-            
-        }
-
-        private EmployeeModel CreateEmployee(EmployeeModel employee)
-        {
-            //TO DO - save to DataBase
-            employee.Id = 4;
-            employee.Code = 4;
-
-            return employee;
         }
 
         private bool ValidateForm()
@@ -180,19 +133,26 @@ namespace SystemHR.UserInterface.Forms.Employees
             return ValidationCheckResult;
         }
 
-        protected override void Cancel()
+        private EmployeeModel CreateEmployee(EmployeeModel employee)
         {
-            base.Cancel(); // w klasie bazowej mozna dodac dodatkowe dzialanie dla wszystkich klas pochodnych
-                           // w zaleznosci od potrzeby moze ona nastapic przed lub po wywolaniu dodatkwych funkcjonalnosci
-            Close();
+            //TO DO - save to DataBase
+            employee.Id = 4;
+            employee.Code = 4;
+
+            return employee;
+        }
+        #endregion
+
+        #region Events
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Save();
         }
 
-        private void dtp_ValueChanged(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            DateTimePicker dtp = sender as DateTimePicker;
-            dtp.DateTimePickerValueChanged();
+            Cancel();
         }
-
         private void txtLastName_TextChanged(object sender, EventArgs e)
         {
             ValidateControls();
@@ -216,5 +176,58 @@ namespace SystemHR.UserInterface.Forms.Employees
             else
                 epPESEL.Clear();
         }
+
+        private void dtp_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker dtp = sender as DateTimePicker;
+            dtp.DateTimePickerValueChanged();
+        }
+
+        #endregion
+
+        #region Override
+        protected override void Save()
+        {
+            base.Save(); // w klasie bazowej jest pusto, wiec mozna to usunac
+            
+            if (ValidateForm())
+            {
+                EmployeeModel employee = new EmployeeModel()
+                {
+                        LastName = txtLastName.Text
+                    ,   Firstname = txtFirstName.Text
+                    ,   Gender = new GenderModel(cbGender.Text)
+                    ,   DateBirth = dtpDateBirth.Value
+                    ,   PESEL = txtPesel.Text
+                    ,   PhoneNumber = txtPhoneNumber.Text
+                    ,   EmailAddress = txtEmailAddress.Text
+                    ,   IdentityCardNumber = txtIdentityCardNumber.Text
+                    ,   IssueDateIdentityCard = dtpIssueDateIdentityCard.Value
+                    ,   ExpirationDateIdentityCard = dtpExpirationDateIdenitityCard.Value
+                    ,   PassportNumber = txtPassportNumber.Text
+                    ,   IssueDatePassport = dtpIssueDatePassport.Value
+                    ,   ExpirationDatePassport = dtpExpirationDatePassport.Value
+                    ,   Status = new StatusModel("Wprowadzony")
+                };
+
+                employee = CreateEmployee(employee);
+
+                ReloadEmployees?.Invoke(btnSave,new EmployeeEventArgs(employee));
+                /* TO DO 
+                 * Niestandardowe zdarzenia i delegacje.
+                 * ReloadEmployees();
+                 */
+
+                Close();
+            }
+            
+        }
+        protected override void Cancel()
+        {
+            base.Cancel(); // w klasie bazowej mozna dodac dodatkowe dzialanie dla wszystkich klas pochodnych
+                           // w zaleznosci od potrzeby moze ona nastapic przed lub po wywolaniu dodatkwych funkcjonalnosci
+            Close();
+        }
+        #endregion
     }
 }

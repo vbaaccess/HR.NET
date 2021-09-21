@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\EmployeeEventArgs.cs" />
     <Compile Include="Extensions\ExtensionsMethods.cs" />
     <Compile Include="Forms\Base\BaseAddEditForm.cs">
       <SubType>Form</SubType>

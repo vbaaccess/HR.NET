@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SystemHR.DataAccessLayer.Models;
 using SystemHR.DataAccessLayer.Models.Dictionaries;
 using SystemHR.DataAccessLayer.ViewModel;
+using SystemHR.UserInterface.Classes;
 using SystemHR.UserInterface.Helpers;
 
 namespace SystemHR.UserInterface.Forms.Employees
@@ -112,23 +113,40 @@ namespace SystemHR.UserInterface.Forms.Employees
                 }
             };
 
-            return MappingHelper.MapEmpoyeeModellToEmployeeViewModel(testEmployeesModel);
+            return MappingHelper.MapEmpoyeeModelToEmployeeViewModel(testEmployeesModel);
         }
         #endregion
 
-        #region Private Metods
+        #region Events
 
         private void EmployeesForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _instance = null;
         }
 
-        #endregion
-
         private void btnCreate_Click(object sender, EventArgs e)
         {
             EmployeeAddForm frm = new EmployeeAddForm();
+            frm.ReloadEmployees += (s, ea) =>
+             {
+                 //MessageBox.Show("ReloadEmployees Invoke");
+
+                 // odczytuje dane zdarzenia
+                 EmployeeEventArgs eventArgs = ea as EmployeeEventArgs;
+                 if (eventArgs!=null)
+                 {
+                     EmployeeViewModel employee 
+                        = MappingHelper.MapEmpoyeeModelToEmployeeViewModel(eventArgs.Employee);
+                     BindingSourceEmployees.Add(employee);
+
+                     dgvEmployees.ClearSelection();
+                     dgvEmployees.Rows[dgvEmployees.Rows.Count - 1].Selected = true;
+                 };
+             };
             frm.ShowDialog();
         }
+
+        #endregion
+
     }
 }
