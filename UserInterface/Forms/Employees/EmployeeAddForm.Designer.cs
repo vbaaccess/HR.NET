@@ -67,6 +67,7 @@
             this.pbEmployee = new System.Windows.Forms.PictureBox();
             this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.epFirstName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epPESEL = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceGender)).BeginInit();
             this.gbContact.SuspendLayout();
@@ -75,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPESEL)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -112,6 +114,8 @@
             this.txtPesel.Name = "txtPesel";
             this.txtPesel.Size = new System.Drawing.Size(165, 20);
             this.txtPesel.TabIndex = 9;
+            this.txtPesel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesel_KeyPress);
+            this.txtPesel.Validated += new System.EventHandler(this.txtPesel_Validated);
             // 
             // label6
             // 
@@ -434,6 +438,12 @@
             this.epFirstName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.epFirstName.ContainerControl = this;
             // 
+            // epPESEL
+            // 
+            this.epPESEL.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epPESEL.ContainerControl = this;
+            this.epPESEL.Icon = ((System.Drawing.Icon)(resources.GetObject("epPESEL.Icon")));
+            // 
             // EmployeeAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +471,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPESEL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,5 +516,6 @@
         private System.Windows.Forms.BindingSource BindingSourceGender;
         private System.Windows.Forms.ErrorProvider epLastName;
         private System.Windows.Forms.ErrorProvider epFirstName;
+        private System.Windows.Forms.ErrorProvider epPESEL;
     }
 }

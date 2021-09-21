@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SystemHR.DataAccessLayer.Models.Dictionaries;
 using SystemHR.UserInterface.Extensions;
 using SystemHR.UserInterface.Forms.Base;
+using SystemHR.UserInterface.Helpers;
 
 namespace SystemHR.UserInterface.Forms.Employees
 {
@@ -88,6 +89,20 @@ namespace SystemHR.UserInterface.Forms.Employees
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
             ValidateControls();
+        }
+
+        private void txtPesel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtPesel_Validated(object sender, EventArgs e)
+        {
+            string pesel = txtPesel.Text;
+            if (!string.IsNullOrWhiteSpace(pesel) && !ValidatorsHelper.IsValidPESEL(pesel))
+                epPESEL.SetError(txtPesel, "Cyfra kontrola numeru PESEL jest nieprwidłowa.");
+            else
+                epPESEL.Clear();
         }
     }
 }

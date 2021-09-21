@@ -82,7 +82,7 @@ namespace SystemHR.UserInterface.Forms.Employees
                    ,Code  = 1
                    ,Gender = new GenderModel("Mężczyzna")
                    ,DateBirth = new DateTime(1978,1,1)
-                   ,PESEL = "123456"
+                   ,PESEL = "78010102177"
                    ,EmailAddress = "mailto:vba.msaccess@gmail.com"
                    ,IdentityCardNumber = "ABC123"
                    ,IssueDateIdentityCard = new DateTime(2012,9,1)
@@ -100,7 +100,7 @@ namespace SystemHR.UserInterface.Forms.Employees
                    ,Code  = 2
                    ,Gender = new GenderModel("Kobieta")
                    ,DateBirth = new DateTime(1987,6,5)
-                   ,PESEL = "234567"
+                   ,PESEL = "87060510647"
                    ,EmailAddress = "http://vba.warszawa.pl/"
                    ,IdentityCardNumber = "XYC321"
                    ,IssueDateIdentityCard = new DateTime(2020,12,12)
