@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeEditForm));
             this.pbEmployee = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEmployee = new System.Windows.Forms.Label();
             this.tcEmployee = new System.Windows.Forms.TabControl();
             this.tpIdentificationData = new System.Windows.Forms.TabPage();
-            this.tpEmploymentHistory = new System.Windows.Forms.TabPage();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.gbPassport = new System.Windows.Forms.GroupBox();
             this.dtpExpirationDatePassport = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -66,6 +64,13 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tpEmploymentHistory = new System.Windows.Forms.TabPage();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.BindingSourceGender = new System.Windows.Forms.BindingSource(this.components);
+            this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epFirstName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epPESEL = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             this.tcEmployee.SuspendLayout();
             this.tpIdentificationData.SuspendLayout();
@@ -73,6 +78,10 @@
             this.bgIdentityCard.SuspendLayout();
             this.gbContact.SuspendLayout();
             this.gbGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceGender)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPESEL)).BeginInit();
             this.SuspendLayout();
             // 
             // pbEmployee
@@ -85,15 +94,15 @@
             this.pbEmployee.TabIndex = 4;
             this.pbEmployee.TabStop = false;
             // 
-            // label1
+            // lblEmployee
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Dane identyfikacyjne";
+            this.lblEmployee.AutoSize = true;
+            this.lblEmployee.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployee.Location = new System.Drawing.Point(23, 13);
+            this.lblEmployee.Name = "lblEmployee";
+            this.lblEmployee.Size = new System.Drawing.Size(289, 24);
+            this.lblEmployee.TabIndex = 3;
+            this.lblEmployee.Text = "Imie Naziwsko (Kod) - STATUS";
             // 
             // tcEmployee
             // 
@@ -119,44 +128,6 @@
             this.tpIdentificationData.Text = "Dane identyfikacyjne";
             this.tpIdentificationData.UseVisualStyleBackColor = true;
             // 
-            // tpEmploymentHistory
-            // 
-            this.tpEmploymentHistory.Location = new System.Drawing.Point(4, 22);
-            this.tpEmploymentHistory.Name = "tpEmploymentHistory";
-            this.tpEmploymentHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmploymentHistory.Size = new System.Drawing.Size(817, 397);
-            this.tpEmploymentHistory.TabIndex = 1;
-            this.tpEmploymentHistory.Text = "Historia zatrudnienia";
-            this.tpEmploymentHistory.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCancel.Image = global::SystemHR.UserInterface.Properties.Resources.cancel_wb32;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(756, 490);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(96, 40);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Anuluj";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSave.Image = global::SystemHR.UserInterface.Properties.Resources.save_wb32;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(27, 490);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(96, 40);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Zapisz";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
             // gbPassport
             // 
             this.gbPassport.Controls.Add(this.dtpExpirationDatePassport);
@@ -180,6 +151,7 @@
             this.dtpExpirationDatePassport.Name = "dtpExpirationDatePassport";
             this.dtpExpirationDatePassport.Size = new System.Drawing.Size(165, 20);
             this.dtpExpirationDatePassport.TabIndex = 11;
+            this.dtpExpirationDatePassport.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label12
             // 
@@ -198,6 +170,7 @@
             this.dtpIssueDatePassport.Name = "dtpIssueDatePassport";
             this.dtpIssueDatePassport.Size = new System.Drawing.Size(165, 20);
             this.dtpIssueDatePassport.TabIndex = 9;
+            this.dtpIssueDatePassport.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label13
             // 
@@ -247,6 +220,7 @@
             this.dtpExpirationDateIdenitityCard.Name = "dtpExpirationDateIdenitityCard";
             this.dtpExpirationDateIdenitityCard.Size = new System.Drawing.Size(165, 20);
             this.dtpExpirationDateIdenitityCard.TabIndex = 5;
+            this.dtpExpirationDateIdenitityCard.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label11
             // 
@@ -265,6 +239,7 @@
             this.dtpIssueDateIdentityCard.Name = "dtpIssueDateIdentityCard";
             this.dtpIssueDateIdentityCard.Size = new System.Drawing.Size(165, 20);
             this.dtpIssueDateIdentityCard.TabIndex = 3;
+            this.dtpIssueDateIdentityCard.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label10
             // 
@@ -361,6 +336,7 @@
             this.txtPesel.Name = "txtPesel";
             this.txtPesel.Size = new System.Drawing.Size(165, 20);
             this.txtPesel.TabIndex = 9;
+            this.txtPesel.Validated += new System.EventHandler(this.txtPesel_Validated);
             // 
             // label6
             // 
@@ -379,6 +355,7 @@
             this.dtpDateBirth.Name = "dtpDateBirth";
             this.dtpDateBirth.Size = new System.Drawing.Size(165, 20);
             this.dtpDateBirth.TabIndex = 7;
+            this.dtpDateBirth.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
             // 
             // label5
             // 
@@ -391,6 +368,7 @@
             // 
             // cbGender
             // 
+            this.cbGender.DataSource = this.BindingSourceGender;
             this.cbGender.DisplayMember = "Value";
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Location = new System.Drawing.Point(115, 88);
@@ -414,6 +392,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(165, 20);
             this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtLastName
             // 
@@ -421,6 +400,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(165, 20);
             this.txtLastName.TabIndex = 2;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // label3
             // 
@@ -442,6 +422,66 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nazwisko";
             // 
+            // tpEmploymentHistory
+            // 
+            this.tpEmploymentHistory.Location = new System.Drawing.Point(4, 22);
+            this.tpEmploymentHistory.Name = "tpEmploymentHistory";
+            this.tpEmploymentHistory.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEmploymentHistory.Size = new System.Drawing.Size(817, 397);
+            this.tpEmploymentHistory.TabIndex = 1;
+            this.tpEmploymentHistory.Text = "Historia zatrudnienia";
+            this.tpEmploymentHistory.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCancel.Image = global::SystemHR.UserInterface.Properties.Resources.cancel_wb32;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(756, 490);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(96, 40);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
+            this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSave.Image = global::SystemHR.UserInterface.Properties.Resources.save_wb32;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(27, 490);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(96, 40);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Zapisz";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // BindingSourceGender
+            // 
+            this.BindingSourceGender.DataSource = typeof(SystemHR.DataAccessLayer.Models.Dictionaries.GenderModel);
+            // 
+            // epLastName
+            // 
+            this.epLastName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epLastName.ContainerControl = this;
+            // 
+            // epFirstName
+            // 
+            this.epFirstName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epFirstName.ContainerControl = this;
+            // 
+            // epPESEL
+            // 
+            this.epPESEL.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.epPESEL.ContainerControl = this;
+            this.epPESEL.Icon = ((System.Drawing.Icon)(resources.GetObject("epPESEL.Icon")));
+            // 
             // EmployeeEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,7 +491,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tcEmployee);
             this.Controls.Add(this.pbEmployee);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEmployee);
             this.Name = "EmployeeEditForm";
             this.Text = "Modyfikuj pracownika";
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
@@ -465,6 +505,10 @@
             this.gbContact.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceGender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epPESEL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,7 +517,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbEmployee;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.TabControl tcEmployee;
         private System.Windows.Forms.TabPage tpIdentificationData;
         private System.Windows.Forms.TabPage tpEmploymentHistory;
@@ -509,5 +553,9 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource BindingSourceGender;
+        private System.Windows.Forms.ErrorProvider epLastName;
+        private System.Windows.Forms.ErrorProvider epFirstName;
+        private System.Windows.Forms.ErrorProvider epPESEL;
     }
 }

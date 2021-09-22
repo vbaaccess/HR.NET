@@ -150,7 +150,32 @@ namespace SystemHR.UserInterface.Forms.Employees
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            EmployeeEditForm frm = new EmployeeEditForm();
+
+            int employeesId = Convert.ToInt32(dgvEmployees.CurrentRow.Cells["colId"].Value);
+            int selectedRowIndex = dgvEmployees.CurrentRow.Index;
+
+            EmployeeEditForm frm = new EmployeeEditForm(employeesId);
+
+            frm.ReloadEmployees += (s, ea) =>
+            {
+                //MessageBox.Show("ReloadEmployees Invoke");
+
+                // odczytuje dane zdarzenia
+                EmployeeEventArgs eventArgs = ea as EmployeeEventArgs;
+                if (eventArgs != null)
+                {
+                    EmployeeViewModel employee
+                       = MappingHelper.MapEmpoyeeModelToEmployeeViewModel(eventArgs.Employee);
+
+                    BindingSourceEmployees[selectedRowIndex] = employee;
+
+                    //BindingSourceEmployees.Add(employee);
+
+                    //dgvEmployees.ClearSelection();
+                    //dgvEmployees.Rows[dgvEmployees.Rows.Count - 1].Selected = true;
+                };
+            };
+
             frm.ShowDialog();
         }
     }
