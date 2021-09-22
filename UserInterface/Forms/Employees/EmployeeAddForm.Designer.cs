@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeAddForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEmployee = new System.Windows.Forms.Label();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.txtPesel = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -79,15 +79,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.epPESEL)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblEmployee
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Dane identyfikacyjne";
+            this.lblEmployee.AutoSize = true;
+            this.lblEmployee.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployee.Location = new System.Drawing.Point(23, 13);
+            this.lblEmployee.Name = "lblEmployee";
+            this.lblEmployee.Size = new System.Drawing.Size(189, 24);
+            this.lblEmployee.TabIndex = 0;
+            this.lblEmployee.Text = "Dane identyfikacyjne";
             // 
             // gbGeneral
             // 
@@ -456,7 +456,7 @@
             this.Controls.Add(this.gbContact);
             this.Controls.Add(this.pbEmployee);
             this.Controls.Add(this.gbGeneral);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEmployee);
             this.Name = "EmployeeAddForm";
             this.Text = "Dodaj pracownika";
             this.gbGeneral.ResumeLayout(false);
@@ -479,7 +479,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEmployee;
         private System.Windows.Forms.GroupBox gbGeneral;
         private System.Windows.Forms.ComboBox cbGender;
         private System.Windows.Forms.Label label4;
