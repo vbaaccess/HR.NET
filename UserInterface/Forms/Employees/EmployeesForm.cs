@@ -148,5 +148,10 @@ namespace SystemHR.UserInterface.Forms.Employees
 
         #endregion
 
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            EmployeeEditForm frm = new EmployeeEditForm();
+            frm.ShowDialog();
+        }
     }
 }
