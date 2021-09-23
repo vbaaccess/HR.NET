@@ -93,6 +93,7 @@
             this.btnSendEmail.Text = "Wyślij e-mail";
             this.btnSendEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSendEmail.UseVisualStyleBackColor = false;
+            this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
             // 
             // btnRefresh
             // 
@@ -107,6 +108,7 @@
             this.btnRefresh.Text = "Odśwież";
             this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnRemove
             // 
@@ -121,6 +123,7 @@
             this.btnRemove.Text = "Usuń";
             this.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnDismiss
             // 
@@ -135,6 +138,7 @@
             this.btnDismiss.Text = "Zwolnij";
             this.btnDismiss.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDismiss.UseVisualStyleBackColor = false;
+            this.btnDismiss.Click += new System.EventHandler(this.btnDismiss_Click);
             // 
             // btnModify
             // 

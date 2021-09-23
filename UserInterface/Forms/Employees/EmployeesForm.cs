@@ -146,8 +146,6 @@ namespace SystemHR.UserInterface.Forms.Employees
             frm.ShowDialog();
         }
 
-        #endregion
-
         private void btnModify_Click(object sender, EventArgs e)
         {
 
@@ -178,5 +176,42 @@ namespace SystemHR.UserInterface.Forms.Employees
 
             frm.ShowDialog();
         }
+
+        private void btnDismiss_Click(object sender, EventArgs e)
+        {
+            //TO DO
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int employeeId = Convert.ToInt32(dgvEmployees.CurrentRow.Cells["colId"].Value);
+            int selectedRowIndex = dgvEmployees.CurrentRow.Index;
+
+            // TO DO - ultimately deleting from the database 
+            // RemoveEmployee(employeesId);
+
+            EmployeeViewModel employee = testEmployees.Where(x => x.Id == employeeId).FirstOrDefault();
+            if (employee != null)
+            {
+                BindingSourceEmployees.Remove(employee);
+                if (dgvEmployees.Rows.Count>1)
+                {
+                    dgvEmployees.ClearSelection();
+                    dgvEmployees.Rows[dgvEmployees.Rows.Count - 1].Selected = true;
+                }
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            //TO DO
+        }
+
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            //TO DO
+        }
+        #endregion
+
     }
 }
