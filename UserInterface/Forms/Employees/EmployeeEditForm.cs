@@ -39,15 +39,18 @@ namespace SystemHR.UserInterface.Forms.Employees
         {
             txtLastName.Text = employee.LastName;
             txtFirstName.Text = employee.Firstname;
-            cbGender.Text = employee.Gender != null ? employee.Gender.Value : null;
-            dtpDateBirth.Value = employee.DateBirth.Value; //DateTimePickerValueChanged
+            cbGender.Text = employee.Gender != null ? employee.Gender.Value : null;            
+                //dtpDateBirth.Value = employee.DateBirth.Value; / /DateTimePickerValueChanged
+                dtpDateBirth.SetDateTimePickerValue(employee.DateBirth);
             txtPesel.Text = employee.PESEL;
             txtPhoneNumber.Text = employee.PhoneNumber;
             txtEmailAddress.Text = employee.EmailAddress;
-            txtIdentityCardNumber.Text = employee.IdentityCardNumber;
-            dtpIssueDateIdentityCard.Value = employee.IssueDateIdentityCard.Value;
+            txtIdentityCardNumber.Text = employee.IdentityCardNumber;            
+                //dtpIssueDateIdentityCard.Value = employee.IssueDateIdentityCard.Value;
+                dtpIssueDateIdentityCard.SetDateTimePickerValue(employee.IssueDateIdentityCard);
             txtPassportNumber.Text = employee.PassportNumber;
-            dtpIssueDatePassport.Value = employee.IssueDatePassport.Value;
+                //dtpIssueDatePassport.Value = employee.IssueDatePassport.Value;
+                dtpIssueDatePassport.SetDateTimePickerValue(employee.IssueDatePassport);
             dtpExpirationDatePassport.Value = employee.ExpirationDatePassport.Value;
 
             lblEmployee.Text = $"{employee.Firstname} {employee.LastName} ({employee.Code.ToString().PadLeft(4,'0')} - {employee.Status})";
@@ -110,6 +113,8 @@ namespace SystemHR.UserInterface.Forms.Employees
                 epFirstName.SetError(txtFirstName, "Pole Imie jest wymagane.");
             else
                 epFirstName.Clear();
+
+            ValidatedPESEL(txtPesel.Text);
         }
 
         private void InitializeDate()
@@ -237,7 +242,11 @@ namespace SystemHR.UserInterface.Forms.Employees
 
         private void txtPesel_Validated(object sender, EventArgs e)
         {
-            string pesel = txtPesel.Text;
+            ValidatedPESEL(txtPesel.Text);
+        }
+
+        private void ValidatedPESEL(String pesel)
+        {
             if (!string.IsNullOrWhiteSpace(pesel) && !ValidatorsHelper.IsValidPESEL(pesel))
                 epPESEL.SetError(txtPesel, "Cyfra kontrola numeru PESEL jest nieprwidłowa.");
             else
