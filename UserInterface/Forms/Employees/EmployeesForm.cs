@@ -59,7 +59,7 @@ namespace SystemHR.UserInterface.Forms.Employees
             
             SqlConnector sqlConnector = new SqlConnector();
             IEnumerable<EmployeeModel> employees = sqlConnector.GetEmployees();
-            testEmployees = MappingHelper.MapEmpoyeeModelToEmployeeViewModel(employees.ToList());
+            testEmployees = MappingHelper.MapEmpoyeeModelToEmployeeViewModel(employees);
 
             PrepareEmployessData();
         }

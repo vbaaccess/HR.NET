@@ -11,7 +11,7 @@ namespace SystemHR.UserInterface.Helpers
     public class MappingHelper
     {
         public static IList<EmployeeViewModel> MapEmpoyeeModelToEmployeeViewModel
-            (IList<EmployeeModel> employeesModelToMap)
+            (IEnumerable<EmployeeModel> employeesModelToMap)
         {
             // mozna uzyc biblioteki do mapowania obiektow 
 
