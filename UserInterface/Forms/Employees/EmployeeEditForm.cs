@@ -29,8 +29,7 @@ namespace SystemHR.UserInterface.Forms.Employees
         {
             InitializeComponent();
 
-            SqlConnector sqlConnector = new SqlConnector();
-            employee = sqlConnector.GetEmployee(employeeId);
+            employee = Connector.GetEmployee(employeeId);
 
             InitializeDate();
             PrepareEmplyeeDate(employee);

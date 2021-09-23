@@ -12,11 +12,12 @@ using SystemHR.DataAccessLayer.Models;
 using SystemHR.DataAccessLayer.Models.Dictionaries;
 using SystemHR.DataAccessLayer.ViewModel;
 using SystemHR.UserInterface.Classes;
+using SystemHR.UserInterface.Forms.Base;
 using SystemHR.UserInterface.Helpers;
 
 namespace SystemHR.UserInterface.Forms.Employees
 {
-    public partial class EmployeesForm : Form
+    public partial class EmployeesForm : BaseForm
     {
 
         #region Fields
@@ -57,8 +58,7 @@ namespace SystemHR.UserInterface.Forms.Employees
         {
             InitializeComponent();
             
-            SqlConnector sqlConnector = new SqlConnector();
-            IEnumerable<EmployeeModel> employees = sqlConnector.GetEmployees();
+            IEnumerable<EmployeeModel> employees = Connector.GetEmployees();
             testEmployees = MappingHelper.MapEmpoyeeModelToEmployeeViewModel(employees);
 
             PrepareEmployessData();
