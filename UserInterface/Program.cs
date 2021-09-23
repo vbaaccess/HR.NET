@@ -19,7 +19,8 @@ namespace UserInterface
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            GlobalConfig.InitializeConnection(ConnectionType.Sql);
+            ConnectionType appConfigConnectionTypeKey = GlobalConfig.AppConfigConnectionTypeKey;
+            GlobalConfig.InitializeConnection(appConfigConnectionTypeKey);
 
             Application.Run(new MainForm());
         }

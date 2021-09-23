@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,16 @@ namespace SystemHR.DataAccessLayer
                 case ConnectionType.Text:
                     Connection = new TextConnector();
                     break;
+            }
+        }
+
+        public static ConnectionType AppConfigConnectionTypeKey
+        {
+            get
+            {
+                string configValue = ConfigurationManager.AppSettings["ConnectionType"];
+                ConnectionType value = (ConnectionType)Enum.Parse(typeof(ConnectionType), configValue);
+                return value;
             }
         }
     }
