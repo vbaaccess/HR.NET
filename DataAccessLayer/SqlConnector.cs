@@ -8,7 +8,7 @@ using SystemHR.DataAccessLayer.Models.Dictionaries;
 
 namespace SystemHR.DataAccessLayer
 {
-    public class SqlConnector
+    public class SqlConnector : IDataConnection
     {
         #region Fields
         IList<EmployeeModel> testEmployeesModel = new List<EmployeeModel>()

@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalConfig.cs" />
+    <Compile Include="IDataConnection.cs" />
     <Compile Include="Models\Dictionaries\GenderModel.cs" />
     <Compile Include="Models\Dictionaries\StatusModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />

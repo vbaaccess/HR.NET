@@ -8,7 +8,7 @@ using SystemHR.DataAccessLayer.Models.Dictionaries;
 
 namespace SystemHR.DataAccessLayer
 {
-    public class TextConnector
+    public class TextConnector : IDataConnection
     {
         #region Fields
         IList<EmployeeModel> testTextEmployeesModel = new List<EmployeeModel>()
@@ -78,6 +78,21 @@ namespace SystemHR.DataAccessLayer
         public EmployeeModel GetEmployee(int id)
         {
             return testTextEmployeesModel.Single(x => x.Id == id);
+        }
+
+        public EmployeeModel CreateEmployee(EmployeeModel eModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public EmployeeModel ModifyEmployee(EmployeeModel eModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveEmployee(EmployeeModel employeesId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

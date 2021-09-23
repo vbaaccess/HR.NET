@@ -13,13 +13,10 @@ namespace SystemHR.UserInterface.Forms.Base
 {
     public partial class BaseForm : Form
     {
-                                                // init only in BaseForm
-        protected SqlConnector Connector { get; private set; }
 
         public BaseForm()
         {
             InitializeComponent();
-            Connector = new SqlConnector();
         }
     }
 }

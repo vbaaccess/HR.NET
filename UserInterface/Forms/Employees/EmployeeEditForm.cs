@@ -29,7 +29,7 @@ namespace SystemHR.UserInterface.Forms.Employees
         {
             InitializeComponent();
 
-            employee = Connector.GetEmployee(employeeId);
+            employee = GlobalConfig.Connection.GetEmployee(employeeId);
 
             InitializeDate();
             PrepareEmplyeeDate(employee);

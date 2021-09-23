@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemHR.DataAccessLayer;
 using SystemHR.UserInterface.Forms;
 
 namespace UserInterface
@@ -17,6 +18,9 @@ namespace UserInterface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            GlobalConfig.InitializeConnection(ConnectionType.Sql);
+
             Application.Run(new MainForm());
         }
     }

@@ -58,7 +58,7 @@ namespace SystemHR.UserInterface.Forms.Employees
         {
             InitializeComponent();
             
-            IEnumerable<EmployeeModel> employees = Connector.GetEmployees();
+            IEnumerable<EmployeeModel> employees = GlobalConfig.Connection.GetEmployees();
             testEmployees = MappingHelper.MapEmpoyeeModelToEmployeeViewModel(employees);
 
             PrepareEmployessData();
