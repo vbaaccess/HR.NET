@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemHR.DataAccessLayer;
 using SystemHR.DataAccessLayer.Models;
 using SystemHR.DataAccessLayer.Models.Dictionaries;
 using SystemHR.UserInterface.Classes;
@@ -27,7 +28,10 @@ namespace SystemHR.UserInterface.Forms.Employees
         public EmployeeEditForm(int employeeId)
         {
             InitializeComponent();
-            employee = GetTestEmployees(employeeId);
+
+            SqlConnector sqlConnector = new SqlConnector();
+            employee = sqlConnector.GetEmployee(employeeId);
+
             InitializeDate();
             PrepareEmplyeeDate(employee);
             ValidateControls();
@@ -54,52 +58,6 @@ namespace SystemHR.UserInterface.Forms.Employees
             dtpExpirationDatePassport.Value = employee.ExpirationDatePassport.Value;
 
             lblEmployee.Text = $"{employee.Firstname} {employee.LastName} ({employee.Code.ToString().PadLeft(4,'0')} - {employee.Status})";
-        }
-
-        private EmployeeModel GetTestEmployees(int employeeId)
-        {
-            IList<EmployeeModel> testEmployeesModel = new List<EmployeeModel>()
-            {
-                new EmployeeModel()
-                {
-                    Id = 1
-                   ,LastName = "Pawel"
-                   ,Firstname = "Duda"
-                   ,Code  = 1
-                   ,Gender = new GenderModel("Mężczyzna")
-                   ,DateBirth = new DateTime(1978,1,1)
-                   ,PESEL = "78010102177"
-                   ,EmailAddress = "mailto:vba.msaccess@gmail.com"
-                   ,IdentityCardNumber = "ABC123"
-                   ,IssueDateIdentityCard = new DateTime(2012,9,1)
-                   ,ExpirationDateIdentityCard = new DateTime(2022,9,1)
-                   ,PassportNumber = "PSNR1234"
-                   ,IssueDatePassport = new DateTime(2014,1,11)
-                   ,ExpirationDatePassport = new DateTime(2024,1,11)
-                   ,Status = new StatusModel("Wprowadzony")
-                },
-                new EmployeeModel()
-                {
-                    Id = 1
-                   ,LastName = "Anna"
-                   ,Firstname = "Swaczyn"
-                   ,Code  = 2
-                   ,Gender = new GenderModel("Kobieta")
-                   ,DateBirth = new DateTime(1987,6,5)
-                   ,PESEL = "87060510647"
-                   ,EmailAddress = "http://vba.warszawa.pl/"
-                   ,IdentityCardNumber = "XYC321"
-                   ,IssueDateIdentityCard = new DateTime(2020,12,12)
-                   ,ExpirationDateIdentityCard = new DateTime(2030,12,12)
-                   ,PassportNumber = "PSNR2345"
-                   ,IssueDatePassport = new DateTime(2018,5,26)
-                   ,ExpirationDatePassport = new DateTime(2028,5,26)
-                   ,Status = new StatusModel("Wprowadzony")
-                }
-            };
-
-            EmployeeModel testEmployeeModel = testEmployeesModel.Where(x => x.Id == employeeId).FirstOrDefault();
-            return testEmployeeModel;
         }
 
         private void ValidateControls()
@@ -287,6 +245,7 @@ namespace SystemHR.UserInterface.Forms.Employees
 
                 /*TO DO
                  * Modyfikacja w bazie danych
+                 * ModifyEmployee(employee)
                  */
 
                 ReloadEmployees?.Invoke(btnSave, new EmployeeEventArgs(employee));
