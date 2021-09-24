@@ -103,6 +103,7 @@
             this.btnPositions.Text = "Stanowiska";
             this.btnPositions.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPositions.UseVisualStyleBackColor = false;
+            this.btnPositions.Click += new System.EventHandler(this.btnPositions_Click);
             // 
             // splitter5
             // 
@@ -127,6 +128,7 @@
             this.btnDepartment.Text = "Działy";
             this.btnDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDepartment.UseVisualStyleBackColor = false;
+            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
             // splitter4
             // 
@@ -151,6 +153,7 @@
             this.btnSalaries.Text = "Wynagrodzenia";
             this.btnSalaries.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalaries.UseVisualStyleBackColor = false;
+            this.btnSalaries.Click += new System.EventHandler(this.btnSalaries_Click);
             // 
             // splitter3
             // 
@@ -175,6 +178,7 @@
             this.btnOrganizationalStructure.Text = "Struktura organizacyjna";
             this.btnOrganizationalStructure.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOrganizationalStructure.UseVisualStyleBackColor = false;
+            this.btnOrganizationalStructure.Click += new System.EventHandler(this.btnOrganizationalStructure_Click);
             // 
             // splitter2
             // 
@@ -232,7 +236,7 @@
             this.tpConfiguration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tpConfiguration.Name = "tpConfiguration";
             this.tpConfiguration.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tpConfiguration.Size = new System.Drawing.Size(1012, 41);
+            this.tpConfiguration.Size = new System.Drawing.Size(762, 41);
             this.tpConfiguration.TabIndex = 1;
             this.tpConfiguration.Text = "Konfiguracja";
             this.tpConfiguration.UseVisualStyleBackColor = true;

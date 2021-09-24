@@ -18,6 +18,10 @@ namespace SystemHR.UserInterface.Forms
         #region Fields
         private TabPage _tpEmployees;
         private TabPage _tpContracts;
+        private TabPage _tpOrganizationalStructure;
+        private TabPage _tpSalaries;
+        private TabPage _tpDepartments;
+        private TabPage _tpPositions;
         #endregion
 
         #region Constructior
@@ -48,6 +52,27 @@ namespace SystemHR.UserInterface.Forms
             }
             else
                 tcTabs.SelectedTab = _tpContracts;
+        }
+
+
+        private void btnOrganizationalStructure_Click(object sender, EventArgs e)
+        {
+            //TO DO
+        }
+
+        private void btnSalaries_Click(object sender, EventArgs e)
+        {
+            //TO DO
+        }
+
+        private void btnDepartment_Click(object sender, EventArgs e)
+        {
+            //TO DO
+        }
+
+        private void btnPositions_Click(object sender, EventArgs e)
+        {
+            //TO DO
         }
 
         private void tcTabs_DrawItem(object sender, DrawItemEventArgs e)
@@ -119,5 +144,7 @@ namespace SystemHR.UserInterface.Forms
 
         #region Public Methods
         #endregion
+
+
     }
 }

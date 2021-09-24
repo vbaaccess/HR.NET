@@ -67,6 +67,12 @@
   <ItemGroup>
     <Compile Include="Classes\EmployeeEventArgs.cs" />
     <Compile Include="Extensions\ExtensionsMethods.cs" />
+    <Compile Include="Forms\Base\BaseDictionaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\BaseDictionaryForm.Designer.cs">
+      <DependentUpon>BaseDictionaryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Base\BaseAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,12 @@
     <Compile Include="Forms\Base\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Departments\DepartmentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Departments\DepartmentsForm.Designer.cs">
+      <DependentUpon>DepartmentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Employees\EmployeeAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,11 +133,32 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OrganizationalStructure\OrganizationalStructureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrganizationalStructure\OrganizationalStructureForm.Designer.cs">
+      <DependentUpon>OrganizationalStructureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Positions\PositionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Positions\PositionsForm.Designer.cs">
+      <DependentUpon>PositionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salaries\SalariesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salaries\SalariesForm.Designer.cs">
+      <DependentUpon>SalariesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\MappingHelper.cs" />
     <Compile Include="Helpers\ResourcesHelper.cs" />
     <Compile Include="Helpers\ValidatorsHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Base\BaseDictionaryForm.resx">
+      <DependentUpon>BaseDictionaryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Base\BaseAddEditForm.resx">
       <DependentUpon>BaseAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +174,9 @@
     <EmbeddedResource Include="Forms\Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Departments\DepartmentsForm.resx">
+      <DependentUpon>DepartmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\EmployeeAddForm.resx">
       <DependentUpon>EmployeeAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +188,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrganizationalStructure\OrganizationalStructureForm.resx">
+      <DependentUpon>OrganizationalStructureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Positions\PositionsForm.resx">
+      <DependentUpon>PositionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salaries\SalariesForm.resx">
+      <DependentUpon>SalariesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -215,5 +260,6 @@
   <ItemGroup>
     <None Include="Resources\cancel_wb32.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
