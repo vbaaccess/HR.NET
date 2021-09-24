@@ -73,6 +73,18 @@
     <Compile Include="Forms\Base\BaseAddEditForm.Designer.cs">
       <DependentUpon>BaseAddEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Contracts\ContractAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Contracts\ContractAddForm.Designer.cs">
+      <DependentUpon>ContractAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Contracts\ContractEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Contracts\ContractEditForm.Designer.cs">
+      <DependentUpon>ContractEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Contracts\ContractsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Base\BaseAddEditForm.resx">
       <DependentUpon>BaseAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Contracts\ContractAddForm.resx">
+      <DependentUpon>ContractAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Contracts\ContractEditForm.resx">
+      <DependentUpon>ContractEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Contracts\ContractsForm.resx">
       <DependentUpon>ContractsForm.cs</DependentUpon>
