@@ -61,6 +61,7 @@
             this.Controls.Add(this.label1);
             this.Name = "PositionsForm";
             this.Text = "Stanowiska";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Event_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

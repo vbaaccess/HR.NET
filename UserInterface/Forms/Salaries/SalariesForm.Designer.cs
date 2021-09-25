@@ -60,7 +60,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SalariesForm";
-            this.Text = "Pensje";
+            this.Text = "Wynagrodzenia";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Event_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

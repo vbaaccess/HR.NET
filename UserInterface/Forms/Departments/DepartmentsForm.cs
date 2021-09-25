@@ -13,9 +13,41 @@ namespace SystemHR.UserInterface.Forms.Departments
 {
     public partial class DepartmentsForm : BaseForm
     {
+        private static DepartmentsForm _instance = null;
+
+        public static DepartmentsForm Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new DepartmentsForm();
+                }
+
+                return _instance;
+            }
+        }
+
+        public static bool IsNull
+        {
+            get
+            {
+                if (_instance == null)
+                    return true;
+
+                return false;
+            }
+
+        }
+
         public DepartmentsForm()
         {
             InitializeComponent();
+        }
+
+        private void Event_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _instance = null;
         }
     }
 }

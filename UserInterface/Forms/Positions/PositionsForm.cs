@@ -13,9 +13,41 @@ namespace SystemHR.UserInterface.Forms.Positions
 {
     public partial class PositionsForm : BaseForm
     {
+        private static PositionsForm _instance = null;
+
+        public static PositionsForm Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new PositionsForm();
+                }
+
+                return _instance;
+            }
+        }
+
+        public static bool IsNull
+        {
+            get
+            {
+                if (_instance == null)
+                    return true;
+
+                return false;
+            }
+
+        }
+
         public PositionsForm()
         {
             InitializeComponent();
+        }
+
+        private void Event_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _instance = null;
         }
     }
 }

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using SystemHR.UserInterface.Forms.Employees;
 using SystemHR.UserInterface.Forms.Contracts;
 using SystemHR.UserInterface.Helpers;
+using SystemHR.UserInterface.Forms.OrganizationalStructure;
+using SystemHR.UserInterface.Forms.Salaries;
+using SystemHR.UserInterface.Forms.Departments;
+using SystemHR.UserInterface.Forms.Positions;
 
 namespace SystemHR.UserInterface.Forms
 {
@@ -37,10 +41,11 @@ namespace SystemHR.UserInterface.Forms
             if (EmployeesForm.IsNull)
             {
                 _tpEmployees = new TabPage();
-                ShowFormInTabpage(_tpEmployees, EmployeesForm.Instance);
+                SetPropertyInTabPage(_tpEmployees, EmployeesForm.Instance);
             }
             else
                 tcTabs.SelectedTab = _tpEmployees;
+            //ShowFormInTabpage(_tpEmployees, EmployeesForm.Instance);
         }
 
         private void btnContracts_Click(object sender, EventArgs e)
@@ -48,31 +53,56 @@ namespace SystemHR.UserInterface.Forms
             if (ContractsForm.IsNull)
             {
                 _tpContracts = new TabPage();
-                ShowFormInTabpage(_tpContracts, ContractsForm.Instance);
+                SetPropertyInTabPage(_tpContracts, ContractsForm.Instance);
             }
             else
                 tcTabs.SelectedTab = _tpContracts;
+            //ShowFormInTabpage(_tpContracts, ContractsForm.Instance);
         }
 
 
         private void btnOrganizationalStructure_Click(object sender, EventArgs e)
         {
-            //TO DO
+            if (OrganizationalStructureForm.IsNull)
+            {
+                _tpOrganizationalStructure = new TabPage();
+                SetPropertyInTabPage(_tpOrganizationalStructure, OrganizationalStructureForm.Instance);
+            }
+            else
+                tcTabs.SelectedTab = _tpOrganizationalStructure;
         }
 
         private void btnSalaries_Click(object sender, EventArgs e)
         {
-            //TO DO
+            if (SalariesForm.IsNull)
+            {
+                _tpSalaries = new TabPage();
+                SetPropertyInTabPage(_tpSalaries, SalariesForm.Instance);
+            }
+            else
+                tcTabs.SelectedTab = _tpSalaries;
         }
 
         private void btnDepartment_Click(object sender, EventArgs e)
         {
-            //TO DO
+            if (DepartmentsForm.IsNull)
+            {
+                _tpDepartments = new TabPage();
+                SetPropertyInTabPage(_tpDepartments, DepartmentsForm.Instance);
+            }
+            else
+                tcTabs.SelectedTab = _tpDepartments;
         }
 
         private void btnPositions_Click(object sender, EventArgs e)
         {
-            //TO DO
+            if (PositionsForm.IsNull)
+            {
+                _tpPositions = new TabPage();
+                SetPropertyInTabPage(_tpPositions, PositionsForm.Instance);
+            }
+            else
+                tcTabs.SelectedTab = _tpPositions;
         }
 
         private void tcTabs_DrawItem(object sender, DrawItemEventArgs e)
@@ -128,6 +158,11 @@ namespace SystemHR.UserInterface.Forms
         }
 
         private void ShowFormInTabpage(TabPage tpTab, Form frm)
+        {
+            SetPropertyInTabPage(tpTab, frm);
+        }
+        
+        private void SetPropertyInTabPage(TabPage tpTab, Form frm)
         {
             tcTabs.Controls.Add(tpTab);
 

@@ -60,7 +60,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "DepartmentsForm";
-            this.Text = "DepartmentsForm";
+            this.Text = "Działy";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Event_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

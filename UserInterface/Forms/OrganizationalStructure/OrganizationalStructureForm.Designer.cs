@@ -60,7 +60,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "OrganizationalStructureForm";
-            this.Text = "Struktura organizacyjna";
+            this.Text = "Struktura org.";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Event_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
