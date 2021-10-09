@@ -14,7 +14,16 @@ namespace SystemHR.DataAccessLayer
     }
     public static class GlobalConfig
     {
+
+        #region Constructior
+        public GlobalConfig()
+        {
+            // TO DO 
+            //InitializeComponent();
+        }
+
         public static IDataConnection Connection { get; private set; }
+
 
         public static void InitializeConnection(ConnectionType connType)
         {
@@ -34,7 +43,12 @@ namespace SystemHR.DataAccessLayer
         {
             get
             {
-                string configValue = ConfigurationManager.AppSettings["ConnectionType"];
+                string configValue = string.Empty;
+
+                configValue = ConfigurationManager.AppSettings["SqlServer"];        // TO DO  - procedure save sql server name to DB connection string
+                configValue = ConfigurationManager.AppSettings["SqlDB"];            // TO DO  - procedure save DB name to DB connection string
+                configValue = ConfigurationManager.AppSettings["ConnectionType"];
+
                 ConnectionType value = (ConnectionType)Enum.Parse(typeof(ConnectionType), configValue);
                 return value;
             }
