@@ -9,18 +9,11 @@ namespace SystemHR.DataAccessLayer
 {
     public enum ConnectionType
     {
-            Sql
-        ,   Text
+        Sql
+        , Text
     }
     public static class GlobalConfig
     {
-
-        #region Constructior
-        public GlobalConfig()
-        {
-            // TO DO 
-            //InitializeComponent();
-        }
 
         public static IDataConnection Connection { get; private set; }
 
