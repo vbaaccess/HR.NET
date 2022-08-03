@@ -118,14 +118,15 @@ namespace ConsoleApp
             byte b1 = 100;
             byte b2 = 200;
 
-            //unchecked
-            checked {
+            unchecked
+            //checked 
+            {
 
                 sum = (byte)Add(b1, b2);
                 Console.WriteLine($"suma = {sum}");
             }
 
-            sum = checked((byte)Add(b1, b2));
+            //sum = checked((byte)Add(b1, b2));
         }
     }
 }
