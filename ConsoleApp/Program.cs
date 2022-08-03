@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace ConsoleApp
 {
@@ -12,6 +13,8 @@ namespace ConsoleApp
             Console.Title = "C# How To";
             MainArgs();
             PrintDataTypes();
+
+            SystemStringTypesExamples();
 
             Console.ReadLine();
             
@@ -66,6 +69,21 @@ namespace ConsoleApp
             TimeSpan ts = new TimeSpan(14, 15, 49);
             Console.WriteLine($"     TimeSpan: {ts}");
             Console.WriteLine($" TotalMinutes: {ts.TotalMinutes}");
+        }
+
+        static void SystemStringTypesExamples()
+        {
+            StringBuilder sb = new StringBuilder("\nLista filmow:");
+            sb.Append("\n");
+            sb.AppendLine("Breaking bad");
+            sb.AppendLine("Fundacja");
+            sb.AppendLine("God place");
+            sb.AppendLine("Animki");
+            Console.WriteLine(sb.ToString());
+            sb.Replace("place", "Home");
+            Console.WriteLine(sb.ToString());
+
+            Console.WriteLine("Ilosc znakowa: {0}", sb.Length);
         }
     }
 }
