@@ -61,6 +61,8 @@ namespace ConsoleApp
             dt = DateTime.Now;
             Console.WriteLine($"   Now: {dt}");
 
+            Console.WriteLine($" Czy {dt} nalezy do czasu lteniego? {dt.IsDaylightSavingTime()}");
+
             TimeSpan ts = new TimeSpan(14, 15, 49);
             Console.WriteLine($"     TimeSpan: {ts}");
             Console.WriteLine($" TotalMinutes: {ts.TotalMinutes}");
