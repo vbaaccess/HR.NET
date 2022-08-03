@@ -16,6 +16,8 @@ namespace ConsoleApp
 
             SystemStringTypesExamples();
 
+            TypeConversions();
+
             Console.ReadLine();
             
         }
@@ -84,6 +86,46 @@ namespace ConsoleApp
             Console.WriteLine(sb.ToString());
 
             Console.WriteLine("Ilosc znakowa: {0}", sb.Length);
+        }
+
+        static void TypeConversions()
+        {
+            short number1 = 30000;
+            short number2 = 30000;
+            short result = (short)Add(number1, number2);                // Jawne rzutowanie typu int na short
+
+            Console.WriteLine($"Add {number1} + {number2} = {result}");
+
+            ProcessBytes();
+        }
+
+        static int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        static void NarrowingAttempt(int x, int y)
+        {
+            byte myByte = 0;
+            int myInt = 200;
+            myByte = (byte)myInt;                                       // Jawne rzutowanie typu int na byte
+            Console.WriteLine($"Wartosc myByte: {myByte}");
+        }
+
+        static void ProcessBytes()
+        {
+            byte sum;
+            byte b1 = 100;
+            byte b2 = 200;
+
+            //unchecked
+            checked {
+
+                sum = (byte)Add(b1, b2);
+                Console.WriteLine($"suma = {sum}");
+            }
+
+            sum = checked((byte)Add(b1, b2));
         }
     }
 }
