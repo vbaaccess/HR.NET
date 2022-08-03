@@ -18,6 +18,8 @@ namespace ConsoleApp
 
             TypeConversions();
 
+            IterationExamples();
+
             Console.ReadLine();
             
         }
@@ -127,6 +129,40 @@ namespace ConsoleApp
             }
 
             //sum = checked((byte)Add(b1, b2));
+        }
+
+        static void IterationExamples()
+        {
+            Console.WriteLine("Iteracje: petle for");
+            int length = 9;
+            for (int i = 0; i < length; i++)
+            {
+                Console.WriteLine($"{i}");
+            }
+
+            Console.WriteLine("Iteracje: petle for");
+
+            string sReadLine = "";
+
+            Console.WriteLine("Rozpoczynam petle WHILE:....");
+            int iR = 0;
+            while (sReadLine.ToUpper() != "END")
+            {
+                iR += 1;
+                Console.Write($"{iR}) Co robimy? ");
+                sReadLine = Console.ReadLine();
+            }
+
+
+            Console.WriteLine("Rozpoczynam petle Do / While:....");
+            do
+            {
+                iR += 1;
+                Console.Write($"{iR}) Dzialamy dalej ? :P ? ");
+                sReadLine = Console.ReadLine();
+            }
+            while (sReadLine.ToUpper() != "END");
+
         }
     }
 }
