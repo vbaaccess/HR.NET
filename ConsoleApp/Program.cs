@@ -18,9 +18,9 @@ namespace ConsoleApp
 
             TypeConversions();
 
-            IterationExamples();
+            //IterationExamples();
 
-            DecistionExamples();
+            DecistionExamples2();
 
             Console.ReadLine();
             
@@ -184,13 +184,18 @@ namespace ConsoleApp
         static void DecistionExamples2()
         {
             int grade;
-            StringBuilder ds = new StringBuilder("\nOcena");
+
 
             Console.WriteLine("Podaj ocene od 1 do 6");
             grade = int.Parse(Console.ReadLine());
 
+            StringBuilder ds = new StringBuilder($"\n ({grade}) Ocena ");
+
             switch (grade)
             {
+                case 6:
+                case 5:
+                case 4:
                 case 3:
                     ds.Append("pozytywna");
                     break;
@@ -201,6 +206,31 @@ namespace ConsoleApp
                     ds.Append("negatywana");
                     break;
             }
+            ds.AppendLine("\n");
+            switch (grade)
+            {
+                case 6:
+                    ds.AppendLine(" - celujaca - ");
+                    break;
+                case 5:
+                    ds.AppendLine(" - bardzo dobra - ");
+                    break;
+                case 4:
+                    ds.AppendLine(" - dobra - ");
+                    break;
+                case 3:
+                    ds.AppendLine(" - dostateczna - ");
+                    break;
+                case 2:
+                    ds.AppendLine(" - mierna - ");
+                    break;
+                case 1:
+                    ds.AppendLine(" - niedostateczna - ");
+                    break;
+            }
+
+            Console.WriteLine(ds.ToString());
+
         }
     }
 }
