@@ -20,6 +20,8 @@ namespace ConsoleApp
 
             IterationExamples();
 
+            DecistionExamples();
+
             Console.ReadLine();
             
         }
@@ -163,6 +165,42 @@ namespace ConsoleApp
             }
             while (sReadLine.ToUpper() != "END");
 
+        }
+
+        static void DecistionExamples()
+        {
+            int age;
+            int pelnoletnosc = 18;
+
+            Console.WriteLine("Podja swoj wiek...");
+            age = int.Parse(Console.ReadLine());
+            
+            if (age >= pelnoletnosc)
+                Console.WriteLine("Jestes pelnoletniom osobaom");
+            else
+                Console.WriteLine("Niepelnoletni !");
+        }
+
+        static void DecistionExamples2()
+        {
+            int grade;
+            StringBuilder ds = new StringBuilder("\nOcena");
+
+            Console.WriteLine("Podaj ocene od 1 do 6");
+            grade = int.Parse(Console.ReadLine());
+
+            switch (grade)
+            {
+                case 3:
+                    ds.Append("pozytywna");
+                    break;
+                case 2:
+                    ds.Append("dopuszczajaca");
+                    break;
+                case 1:
+                    ds.Append("negatywana");
+                    break;
+            }
         }
     }
 }
