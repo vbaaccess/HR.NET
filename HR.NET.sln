@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{025BA55D-7AF4-4968-AD59-1010084FFC2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsDockManagerControl", "WindowsFormsDockManagerControl\WindowsFormsDockManagerControl.csproj", "{0B036562-67DB-45C7-9E8A-520F605D834E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{025BA55D-7AF4-4968-AD59-1010084FFC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{025BA55D-7AF4-4968-AD59-1010084FFC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{025BA55D-7AF4-4968-AD59-1010084FFC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B036562-67DB-45C7-9E8A-520F605D834E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B036562-67DB-45C7-9E8A-520F605D834E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B036562-67DB-45C7-9E8A-520F605D834E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B036562-67DB-45C7-9E8A-520F605D834E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
