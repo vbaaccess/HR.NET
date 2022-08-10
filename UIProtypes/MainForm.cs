@@ -16,5 +16,17 @@ namespace UIProtypes
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormList frm = new FormList();
+            frm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormDetails frm = new FormDetails();
+            frm.Show();
+        }
     }
 }

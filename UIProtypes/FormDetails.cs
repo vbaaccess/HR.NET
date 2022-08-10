@@ -8,12 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SystemHR.UserInterface.Forms.Base
+namespace UIProtypes
 {
-    public partial class BaseForm : Form
+    public partial class FormDetails : Form
     {
-
-        public BaseForm()
+        public FormDetails()
         {
             InitializeComponent();
         }

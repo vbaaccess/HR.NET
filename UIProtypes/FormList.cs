@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SystemHR.UserInterface.Forms.Base
+namespace UIProtypes
 {
-    public partial class BaseForm : Form
+    public partial class FormList : Form
     {
-
-        public BaseForm()
+        public FormList()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Odswiezanie", "UNDER CONSTRUCTION");
         }
     }
 }
